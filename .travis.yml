@@ -27,7 +27,7 @@ matrix:
         - python -m pip install --update flask
       install:
         - python -m pip install -r requirements.txt
-      env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
+      env: PATH=/c/Python35:/c/Python35/Scripts:$PATH
     
     - name: "Python 3.6.7 on Windows"
       os: windows
@@ -40,7 +40,7 @@ matrix:
         - python -m pip install --update flask
       install:
         - python -m pip install -r requirements.txt
-      env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
+      env: PATH=/c/Python36:/c/Python36/Scripts:$PATH
       
     - name: "Python 3.7.4 on Windows"
       os: windows
