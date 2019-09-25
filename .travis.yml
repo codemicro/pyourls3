@@ -1,14 +1,26 @@
 language: python
-python:
-  - "3.5"
-  - "3.6"
-  - "3.7"
+
+matrix:
+  include:
+    - name: "Python 3.7.1 on Linux"
+      python: 3.7
+    - name: "Python 3.7.4 on macOS"
+      os: osx
+      osx_image: xcode11
+      language: shell
+    - name: "Python 3.7.4 on Windows"
+      os: windows
+      language: shell
+      before_install:
+        - choco install python
+        - python -m pip install --upgrade pip
+      env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
+
 before_install:
-  - python --version
+  - python3 --version || python --version
   - pip install -U pip  # update pip, because why not
-  - pip install -U pytest  # dev only dependency
+  - pip install -U pytest  # dev only dependencies
   - pip install -U flask
-  - pip install -U gevent
 install:
   - pip install -r requirements.txt
 # command to run tests
