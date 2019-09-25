@@ -22,9 +22,9 @@ matrix:
       before_install:
         - choco install python --version 3.5.4
         - python --version
-        - python -m pip install -U pip
-        - python -m pip install -U pytest
-        - python -m pip install -U flask
+        - python -m pip install --update pip
+        - python -m pip install --update pytest
+        - python -m pip install --update flask
       install:
         - python -m pip install -r requirements.txt
       env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
@@ -35,9 +35,9 @@ matrix:
       before_install:
         - choco install python --version 3.6.7
         - python --version
-        - python -m pip install -U pip
-        - python -m pip install -U pytest
-        - python -m pip install -U flask
+        - python -m pip install --update pip
+        - python -m pip install --update pytest
+        - python -m pip install --update flask
       install:
         - python -m pip install -r requirements.txt
       env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
