@@ -42,7 +42,7 @@ class Yourls:
         self.api_endpoint = addr + "yourls-api.php"
 
         self.session = requests.session()
-        self.session.headers.update = {"user-agent": f"pyourls3/{VERSION}"}
+        self.session.headers.update = {"user-agent": "pyourls3/{}".format(VERSION)}
 
     def shorten(self, url, keyword=None, title=None):
 
