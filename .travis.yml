@@ -2,19 +2,52 @@ language: python
 
 matrix:
   include:
-    - name: "Python 3.7, 3.6 and 3.5 on Linux"
+    - name: "Python 3.5 on Linux"
       python: 3.5
+      
+    - name: "Python 3.6 on Linux"
       python: 3.6
+      
+    - name: "Python 3.7 on Linux"
       python: 3.7
+      
     - name: "Python 3.7.4 on macOS"
       os: osx
       osx_image: xcode11
       language: shell
+    
+    - name: "Python 3.5.4 on Windows"
+      os: windows
+      language: shell
+      before_install:
+        - choco install python --version 3.5.4
+        - python --version
+        - python -m pip install -U pip
+        - python -m pip install -U pytest
+        - python -m pip install -U flask
+      install:
+        - python -m pip install -r requirements.txt
+      env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
+    
+    - name: "Python 3.6.7 on Windows"
+      os: windows
+      language: shell
+      before_install:
+        - choco install python --version 3.6.7
+        - python --version
+        - python -m pip install -U pip
+        - python -m pip install -U pytest
+        - python -m pip install -U flask
+      install:
+        - python -m pip install -r requirements.txt
+      env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
+      
     - name: "Python 3.7.4 on Windows"
       os: windows
       language: shell
       before_install:
-        - choco install python
+        - choco install python --version 3.7.4
+        - python --version
         - python -m pip install -U pip
         - python -m pip install -U pytest
         - python -m pip install -U flask
