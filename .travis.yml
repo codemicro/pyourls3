@@ -21,6 +21,7 @@ matrix:
       language: shell
       before_install:
         - choco install python --version 3.5.4
+        - refreshenv
         - python --version
         - python -m pip install --update pip
         - python -m pip install --update pytest
@@ -34,6 +35,7 @@ matrix:
       language: shell
       before_install:
         - choco install python --version 3.6.7
+        - refreshenv
         - python --version
         - python -m pip install --update pip
         - python -m pip install --update pytest
@@ -47,6 +49,7 @@ matrix:
       language: shell
       before_install:
         - choco install python --version 3.7.4
+        - refreshenv
         - python --version
         - python -m pip install -U pip
         - python -m pip install -U pytest
