@@ -2,7 +2,9 @@ language: python
 
 matrix:
   include:
-    - name: "Python 3.7.1 on Linux"
+    - name: "Python 3.7, 3.6 and 3.5 on Linux"
+      python: 3.5
+      python: 3.6
       python: 3.7
     - name: "Python 3.7.4 on macOS"
       os: osx
@@ -13,16 +15,20 @@ matrix:
       language: shell
       before_install:
         - choco install python
-        - python -m pip install --upgrade pip
+        - python -m pip install -U pip
+        - python -m pip install -U pytest
+        - python -m pip install -U flask
+      install:
+        - python -m pip install -r requirements.txt
       env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
 
 before_install:
-  - python3 --version || python --version
-  - pip install -U pip  # update pip, because why not
-  - pip install -U pytest  # dev only dependencies
-  - pip install -U flask
+  - python3 --version
+  - pip3 install -U pip  # update pip, because why not
+  - pip3 install -U pytest  # dev only dependencies
+  - pip3 install -U flask
 install:
-  - pip install -r requirements.txt
+  - pip3 install -r requirements.txt
 # command to run tests
 script:
   - pytest
