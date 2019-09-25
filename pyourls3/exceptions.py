@@ -1,3 +1,4 @@
+
 class Pyourls3Error(Exception):
     # base exception
     def __init__(self, msg):
@@ -12,7 +13,7 @@ class Pyourls3ParamError(Pyourls3Error):
         self.param = param
 
     def __str__(self):
-        return f"Parameter '{self.param}' is either missing and required, or is malformed."
+        return "Parameter '{}' is either missing and required, or is malformed.".format(self.param)
 
 
 class Pyourls3HTTPError(Pyourls3Error):
@@ -21,7 +22,7 @@ class Pyourls3HTTPError(Pyourls3Error):
         self.url = url
 
     def __str__(self):
-        return f"A HTTP error was encountered during a request to {self.url} - {self.status_code}"
+        return "A HTTP error was encountered during a request to {} - {}".format(self.url, self.status_code)
 
 
 class Pyourls3APIError(Pyourls3Error):
@@ -30,7 +31,7 @@ class Pyourls3APIError(Pyourls3Error):
         self.code = code
 
     def __str__(self):
-        return f"An error was returned from the server during a request - {self.message} ({self.code})"
+        return "An error was returned from the server during a request - {} ({})".format(self.message, self.code)
 
 
 class Pyourls3URLAlreadyExistsError(Pyourls3APIError):
@@ -38,4 +39,4 @@ class Pyourls3URLAlreadyExistsError(Pyourls3APIError):
         self.url = url
 
     def __str__(self):
-        return f"There is already a redirect to the specified URL ({self.url}) in the database"
+        return "There is already a redirect to the specified URL ({}) in the database".format(self.url)
