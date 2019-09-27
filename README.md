@@ -8,4 +8,4 @@ A Python 3 API wrapper for [YOURLS](https://yourls.org/) - Pyourls3 is an API wr
 designed to supersede the old [`python-yourls`](https://pypi.org/project/python-yourls) written by [tflink](https://github.com/tflink),
 built using the fantastic [`requests`](https://pypi.org/project/requests/) library.
 
-Documentation can be found at https://www.tdpain.net/projects/pyourls3
+Documentation can be found at https://www.tdpain.net/projects/pyourls3.
