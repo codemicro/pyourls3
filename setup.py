@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pyourls3",
-    version="1.0.3",
+    version="1.0.4",
     author="Thomas Pain",
     author_email="pyourls3@tdpain.net",
     description="A Python 3 API wrapper for YOURLS",
@@ -19,5 +19,5 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.5',
-    install_requires=["requests==2.22.0"]
+    install_requires=["requests"]
 )
