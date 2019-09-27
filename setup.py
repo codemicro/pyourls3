@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="pyourls3-codemicro",
+    name="pyourls3",
     version="1.0.0",
     author="Thomas Pain",
     author_email="pyourls3@tdpain.net",
