@@ -1,0 +1,19 @@
+site_name: Pyourls3 1.0.0
+
+repo_url: https://www.github.com/codemicro/pyourls3
+repo_name: GitHub
+
+copyright: Copyright © Thomas Pain <script>document.write(new Date().getFullYear());</script>
+site_author: Thomas Pain
+side_description: The docs for Pyourls3 - A Python 3 API wrapper for YOURLS
+
+theme:
+  name: 'bootstrap386'
+
+nav:
+    - 'Guides':
+        - 'Getting started': 'start.md'
+        - 'User guide': 'user.md'
+    - 'Documentation':
+        - 'API reference': 'api.md'
+        - 'Testing and contributing': 'test.py'
