@@ -1,18 +1,25 @@
 import requests
 import urllib3
-from pyourls3 import exceptions
-from pyourls3.version import VERSION
+from pyourls3 import exceptions, version
 import json
 
 
 class Yourls:
+    """
+    Base class for Pyourls3
+
+    :param addr: required, string. The base address that the YOURLS installation resides at.
+    :param user: string. Username if not using key authorisation
+    :param passwd: required if using user, string. Password for username/password auth.
+    :param key: string. Can only be used if user and password are not specified.
+    """
 
     def __init__(self, addr, user=None, passwd=None, key=None):
 
         if not addr:
             raise exceptions.Pyourls3ParamError("API URL")
 
-        scheme, _, _, _, _, _, _ = urllib3.util.parse_url(addr)
+        scheme, _, _, _, _, _, _ = urllib3.util.parse_url(addr)  # checking for a protocol in the URL
 
         if not scheme:
             raise exceptions.Pyourls3ParamError("addr")
@@ -36,15 +43,26 @@ class Yourls:
 
         self.global_args["format"] = "json"
 
-        if addr[-1] != "/":
+        if addr[-1] != "/":  # I like trailing slashes
             addr += "/"
 
         self.api_endpoint = addr + "yourls-api.php"
 
         self.session = requests.session()
-        self.session.headers.update = {"user-agent": "pyourls3/{}".format(VERSION)}
+        self.session.headers.update = {"user-agent": "pyourls3/{}".format(version)}
 
     def shorten(self, url, keyword=None, title=None):
+        """
+        Sends an API request to shorten a specified URL.
+
+        :param url: required, string. URL to be shortened.
+        :param keyword: string. Custom alias for the URL
+        :param title: string. Custom title for  the URL.
+        :return: dictionary. Full JSON response from the API, parsed into a dict
+
+        :raises: pyourls3.exceptions.Pyourls3ParamError, pyourls3.exceptions.Pyourls3HTTPError,
+          pyourls3.exceptions.Pyourls3APIError, pyourls3.exceptions.Pyourls3URLAlreadyExistsError
+        """
 
         if not url:
             raise exceptions.Pyourls3ParamError("url")
@@ -72,6 +90,12 @@ class Yourls:
         return j
 
     def expand(self, url):
+        """
+        Expands a specified URL or alias into it's full form.
+
+        :param url: required, string. URL or alias for shortened link.
+        :return: string. Expanded URL.
+        """
 
         if not url:
             raise exceptions.Pyourls3ParamError("url")
@@ -90,6 +114,13 @@ class Yourls:
         return j["longurl"]
 
     def stats(self):
+        """
+        Returns the overall installation stats.
+
+        :return: string. Partial JSON response returned by the API.
+
+        :raises: pyourls3.exceptions.Pyourls3HTTPError
+        """
 
         specific_args = {"action": "stats"}
 
@@ -102,6 +133,14 @@ class Yourls:
         return j["stats"]
 
     def url_stats(self, url):
+        """
+        Detailed stats about a specifc URL or alias.
+
+        :param url: required, string. URL or alias of target redirect.
+        :return: dict. Partial JSON response, parsed into a dict.
+
+        :raises: pyourls3.exceptions.Pyourls3HTTPError, pyourls3.exceptions.Pyourls3APIError
+        """
 
         if not url:
             raise exceptions.Pyourls3ParamError("url")

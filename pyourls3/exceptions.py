@@ -1,6 +1,10 @@
 
 class Pyourls3Error(Exception):
-    # base exception
+    """Base exception for Pyourls3.
+
+    :param msg: string, full exception text.
+    """
+
     def __init__(self, msg):
         self.msg = msg
 
@@ -9,6 +13,11 @@ class Pyourls3Error(Exception):
 
 
 class Pyourls3ParamError(Pyourls3Error):
+    """Raised when a function parameter is incorrect
+
+    :param param: string, parameter name that caused the issue
+    """
+
     def __init__(self, param):
         self.param = param
 
@@ -17,6 +26,12 @@ class Pyourls3ParamError(Pyourls3Error):
 
 
 class Pyourls3HTTPError(Pyourls3Error):
+    """Raised in the event that a HTTP error is caused
+
+    :param status_code: string, HTTP status code
+    :param url: string, URL that generated the HTTP error
+    """
+
     def __init__(self, status_code, url):
         self.status_code = status_code
         self.url = url
@@ -26,6 +41,12 @@ class Pyourls3HTTPError(Pyourls3Error):
 
 
 class Pyourls3APIError(Pyourls3Error):
+    """Raised when the API raises an error and returns it through JSON
+
+    :param message: string, message sent back by API
+    :param code: string, status code sent back by the API
+    """
+
     def __init__(self, message, code):
         self.message = message
         self.code = code
@@ -35,6 +56,12 @@ class Pyourls3APIError(Pyourls3Error):
 
 
 class Pyourls3URLAlreadyExistsError(Pyourls3APIError):
+    """Raised specifically when the API returns an error stating the URL already has a redirect created for it
+    It's derived from an API error.
+
+    :param url: URL that's already redirected to
+    """
+
     def __init__(self, url):
         self.url = url
 
