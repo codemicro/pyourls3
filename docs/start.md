@@ -53,7 +53,7 @@ thrown.
 
 *In a future update, instead of throwing an error, Pyourls3 will simply return the shortened URL.* 
     
-## **Expanding  a link**
+## **Expanding a link**
 
 Sometimes the situation arises when you need to expand a link that's been shortened, which is equally easy to do as shortening
 in the first place, if not easier. Simply pass the full shortened URL or the alias to the `expand` function, and the original
