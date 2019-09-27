@@ -5,15 +5,16 @@ repo_name: GitHub
 
 copyright: Copyright © Thomas Pain <script>document.write(new Date().getFullYear());</script>
 site_author: Thomas Pain
-side_description: The docs for Pyourls3 - A Python 3 API wrapper for YOURLS
+site_description: The docs for Pyourls3 - A Python 3 API wrapper for YOURLS
 
 theme:
   name: 'bootstrap386'
 
 nav:
+    - 'Home': '../'
     - 'Guides':
         - 'Getting started': 'start.md'
-        - 'User guide': 'user.md'
+        - 'User manual': 'manual.md'
     - 'Documentation':
         - 'API reference': 'api.md'
         - 'Testing and contributing': 'test.py'
