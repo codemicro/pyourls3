@@ -2,6 +2,7 @@ meddle.py
 t.txt
 venv/
 vcs.xml
+buildupload.bat
 
 # Created by https://www.gitignore.io/api/flask,python,pycharm
 # Edit at https://www.gitignore.io/?templates=flask,python,pycharm
