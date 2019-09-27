@@ -1,6 +1,8 @@
 import requests
 import urllib3
-from pyourls3 import exceptions, version
+
+import pyourls3
+from pyourls3 import exceptions
 import json
 
 
@@ -49,7 +51,7 @@ class Yourls:
         self.api_endpoint = addr + "yourls-api.php"
 
         self.session = requests.session()
-        self.session.headers.update = {"user-agent": "pyourls3/{}".format(version)}
+        self.session.headers.update = {"user-agent": "pyourls3/{}".format(pyourls3.version)}
 
     def shorten(self, url, keyword=None, title=None):
         """
