@@ -62,5 +62,5 @@ long URL is returned in a string.
     >>> pyourls3.expand("teaisgood")
     'https://www.example.com/thing/words/herro'
     
-## Further reading
+## **Further reading**
 [[User manual]](manual.md)
