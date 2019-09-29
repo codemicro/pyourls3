@@ -8,14 +8,14 @@ site_author: Thomas Pain
 site_description: The docs for Pyourls3 - A Python 3 API wrapper for YOURLS
 
 theme:
-  name: 'bootstrap386'
+  name: bootstrap386
 
+use_directory_urls: false
 nav:
-    - 'Home': '../'
-    - 'Guides':
-        - 'Getting started': 'start.md'
-        - 'User manual': 'manual.md'
-    - 'Documentation':
-        - 'API reference': 'api.md'
-        - 'Contributing': 'contributing.md'
-        - 'Testing and contributing': 'test.md'
+    - Home: index.md
+    - Guides:
+        - Getting started: start.md
+    - Documentation:
+        - API reference: api.md
+        - Contributing: contributing.md
+        - Testing: test.md

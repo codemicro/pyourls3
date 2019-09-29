@@ -3,7 +3,7 @@
 Thanks for thinking about contributing to the development of Pyourls3 - it means a lot. Following the guidelines set out
 below means you're more likely to receive positive feedback from the developers and project maintainers. 
 
-## **Contributions we want**
+## **Wanted contributions**
 
 Examples of good contributions are as follows:
 

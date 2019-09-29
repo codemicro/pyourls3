@@ -9,7 +9,6 @@ built using the fantastic [[`requests`]](https://pypi.org/project/requests/) lib
 * [[API reference]](api.md)
 * [[Getting started]](start.md)
 * [[Contributing]](contributing.md)
-* [[User guide]](manual.md)
 
 ## Project layout
 

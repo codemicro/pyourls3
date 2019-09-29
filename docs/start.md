@@ -63,4 +63,4 @@ long URL is returned in a string.
     'https://www.example.com/thing/words/herro'
     
 ## **Further reading**
-[[User manual]](manual.md)
+[[API reference]](api.md)
