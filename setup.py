@@ -19,5 +19,9 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.5',
-    install_requires=["requests"]
+    install_requires=["requests==2.22.0",
+                      "certifi>=2017.4.17",
+                      "chardet<3.1.0,>=3.0.2",
+                      "idna<2.9,>=2.5",
+                      "urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1"]
 )
