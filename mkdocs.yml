@@ -17,4 +17,5 @@ nav:
         - 'User manual': 'manual.md'
     - 'Documentation':
         - 'API reference': 'api.md'
-        - 'Testing and contributing': 'test.py'
+        - 'Contributing': 'contributing.md'
+        - 'Testing and contributing': 'test.md'
