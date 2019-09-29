@@ -10,7 +10,7 @@ assignees: ''
 **Platform info (please complete the following information):**
  - OS: [e.g. iOS]
  - Python Version: [e.g. 3.7.4, 3.5.3, etc]
- - Package version: (`from pyourls3.version import *` and get the value of `VERSION`)
+ - Package version: (found in `pyourls3.version`)
 
 **Describe the bug**
 A clear and concise description of what the bug is.
