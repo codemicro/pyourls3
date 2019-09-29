@@ -26,7 +26,7 @@ class Yourls:
         if not scheme:
             raise exceptions.Pyourls3ParamError("addr")
 
-        self.using_signature_auth = False
+        self.is_using_signature_auth = False
 
         if user is None or passwd is None:
             if key is None:
@@ -34,7 +34,7 @@ class Yourls:
             else:
                 if type(key) is not str:
                     raise exceptions.Pyourls3ParamError("key")
-                self.using_signature_auth = True
+                self.is_using_signature_auth = True
                 self.global_args = {"signature": key}
         else:
             if type(user) is not str:
