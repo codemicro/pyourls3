@@ -14,4 +14,4 @@ The PyPI page can be found at https://pypi.org/project/pyourls3
 
 ## Contibuting
 This is an open source project, so feel free to make some changes or fix something, and submit a pull request. See the
-contributing page in the docs: https://www.tdpain.net/projects/pyourls3/contributing.html
+contributing page in the docs at https://www.tdpain.net/projects/pyourls3/contributing.html.
