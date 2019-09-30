@@ -9,9 +9,11 @@ def proc_cron():
 
     if "action" not in flask.request.form:
         if tests.sharevar.modifier == "badauth":
-            response = flask.Response('{"message": "Invalid username or password","errorCode": 403,"callback": ""}')
+            response = flask.Response('{"message": "Invalid username or password","errorCode": 403,"callback": ""}',
+                                      status=403)
         else:
-            response = flask.Response('{"errorCode": 400,"message": "Unknown or missing "action" parameter"}')
+            response = flask.Response('{"errorCode": 400,"message": "Unknown or missing "action" parameter"}',
+                                      status=400)
 
         response.headers["content-type"] = "application/json"
         return response
