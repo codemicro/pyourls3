@@ -18,7 +18,7 @@ echo.
 SET /P AREYOUSURE=Would you like to upload the new compiled source code? (Y/[N])?
 IF /I "%AREYOUSURE%" NEQ "Y" GOTO ENDONE
 echo Uploading to PyPI
-twine upload --repository-url https://pypi.org/legacy/ dist/*
+twine upload dist/*
 :ENDONE
 
 echo.
