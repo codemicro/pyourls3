@@ -33,18 +33,20 @@ The webserver is setup to take modifiers from tests in order to produce differin
 using `sharevar.py`, an empty module bar two variables - `last_request` and `modifier`. Each of these should be defined 
 before use, and given the value `None`. After each test, the value of `modifier` should be reset to `None`, and after
 each web request, the value of `last_request` will be all POST arguments passed in the request to the webserver, along
-with their values. 
+with their values. `standard_url` is also contained here, which is constant and defines the address that requests should
+be made to.
 
 The webserver itself is designed to respond like a YOURLS installation. It will respond with predefined JSON, depending 
 on the modifier used. All requests should be pointed at `/yourls-api.php`, and as with the YOURLS API, the action should
 be defined in the `action` POST argument. The following modifiers are available for each action:
 
-    | Action    | garbledjson | urlerror | othererror | error | None |
-    |-----------|-------------|----------|------------|-------|------|
-    | shorturl  | Yes         | Yes      | Yes        | No    | Yes  |
-    | expand    | Yes         | No       | No         | Yes   | Yes  |
-    | stats     | Yes         | No       | No         | Yes   | Yes  |
-    | url_stats | Yes         | No       | No         | Yes   | Yes  |
+    | Action    | garbledjson | urlerror | othererror | error | badauth | None |
+    |-----------|-------------|----------|------------|-------|---------|------|
+    | None      | No          | No       | No         | No    | Yes     | Yes  |
+    | shorturl  | Yes         | Yes      | Yes        | No    | No      | Yes  |
+    | expand    | Yes         | No       | No         | Yes   | No      | Yes  |
+    | stats     | Yes         | No       | No         | Yes   | No      | Yes  |
+    | url_stats | Yes         | No       | No         | Yes   | No      | Yes  |
 
 If the modifier is set to `None`, a normal response will be generated, potentially missing some arguments that are not
 required for the package to function.
@@ -59,3 +61,5 @@ The function of each modifier is explained below:
     * returns a generic error-type thing
 * `error`
     * see above
+* `badauth`
+    * Returns a 403 response, and appropriate JSON
