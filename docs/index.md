@@ -7,6 +7,7 @@ built using the fantastic [[`requests`]](https://pypi.org/project/requests/) lib
 ## Quick links
 
 * [[API reference]](api.md)
+* [[Basic usage example]](https://github.com/codemicro/pyourls3/tree/master/examples/example.py)
 * [[Getting started]](start.md)
 * [[Contributing]](contributing.md)
 
