@@ -6,7 +6,17 @@ app = flask.Flask(__name__)
 
 @app.route("/yourls-api.php", methods=["POST"])
 def proc_cron():
-    option = flask.request.form["action"]
+
+    if "action" not in flask.request.form:
+        if tests.sharevar.modifier == "badauth":
+            response = flask.Response('{"message": "Invalid username or password","errorCode": 403,"callback": ""}')
+        else:
+            response = flask.Response('{"errorCode": 400,"message": "Unknown or missing "action" parameter"}')
+
+        response.headers["content-type"] = "application/json"
+        return response
+    else:
+        option = flask.request.form["action"]
 
     tests.sharevar.last_request = flask.request.form
 

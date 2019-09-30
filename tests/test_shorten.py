@@ -3,9 +3,6 @@ import pytest
 import tests
 import tests.sharevar
 
-
-standard_url = "http://127.0.0.1:5000/"
-
 # tests for  the shorten function, utilises a Flask WSGI server. Data is passed from that server through sharevar.py
 # it is crucial that if the modifier is used, it is RESET TO NONE when the test is complete. This can be done by using
 # the fixture "instance"
@@ -13,7 +10,7 @@ standard_url = "http://127.0.0.1:5000/"
 
 @pytest.fixture(scope="module")
 def instance():
-    c = client.Yourls(standard_url, key="12345")
+    c = client.Yourls(tests.sharevar.standard_url, key="12345")
     yield c
     tests.sharevar.modifier = None
 

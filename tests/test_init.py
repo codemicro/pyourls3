@@ -1,5 +1,6 @@
 from pyourls3 import client, exceptions
 import pytest
+import tests.sharevar
 
 
 # initialisation tests
@@ -47,3 +48,8 @@ def test_i_user_agent():
     assert "user-agent" in inst.session.headers.update
 
 
+def test_i_creds_correct():
+    tests.sharevar.modifier = "badauth"
+    with pytest.raises(exceptions.Pyourls3APIError):
+        client.Yourls(tests.sharevar.standard_url, key="12345")
+    tests.sharevar.modifier = None
