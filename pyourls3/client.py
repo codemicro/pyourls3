@@ -54,7 +54,7 @@ class Yourls:
         self.session.headers.update = {"user-agent": "pyourls3/{}".format(pyourls3.version)}
 
         if self.session.post(self.api_endpoint, data={**self.global_args}).status_code == 403:
-            raise exceptions.Pyourls3APIError("forbidden", 403)
+            raise exceptions.Pyourls3APIError("credentials are invalid or incorrect: forbidden", 403)
 
     def shorten(self, url, keyword=None, title=None):
         """
