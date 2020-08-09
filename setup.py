@@ -8,7 +8,7 @@ setuptools.setup(
     version="1.0.1",
     author="Thomas Pain",
     author_email="pyourls3@tdpain.net",
-    description="A Python 3 API wrapper for YOURLS",
+    description="The official Python 3 API wrapper for YOURLS",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://www.tdpain.net/projects/pyourls3",
